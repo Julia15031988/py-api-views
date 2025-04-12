@@ -4,10 +4,9 @@ from cinema.models import Actor, Genre, CinemaHall, Movie
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    title = serializers.CharField(max_length=255)
-    description = serializers.CharField()
-    duration = serializers.IntegerField()
+    class Meta:
+        model = Movie
+        fields = ['id', 'title', 'description', 'actors', 'genres', 'duration']
 
     def create(self, validated_data):
         return Movie.objects.create(**validated_data)
