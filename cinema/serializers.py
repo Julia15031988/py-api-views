@@ -6,7 +6,7 @@ from cinema.models import Actor, Genre, CinemaHall, Movie
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['id', 'title', 'description', 'actors', 'genres', 'duration']
+        fields = ["id", "title", "description", "actors", "genres", "duration"]
 
     def create(self, validated_data):
         return Movie.objects.create(**validated_data)
